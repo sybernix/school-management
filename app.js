@@ -1,5 +1,7 @@
 ﻿var express = require('express')
 var app = express()
+const process = require('process');
+process.title = 'myApp';
 
 var mysql = require('mysql')
 

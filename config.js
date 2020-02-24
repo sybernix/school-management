@@ -1,13 +1,13 @@
 var config = {
     database: {
-        host: 'us-cdbr-iron-east-05.cleardb.net', 	// database host
-        user: 'b737688e0241c0', 		// your database username
-        password: '5b7b158d', 		// database password
-        db: 'heroku_32d4a49c0714ef0' 		// your database name
+        host: '4bdb2deee74e', 	// database host
+        user: 'root', 		// your database username
+        password: 'root', 		// database password
+        db: 'sch_mngr' 		// your database name
     },
     server: {
-        host: 'localhost',
-        port: '5000'
+        host: '4bdb2deee74e',
+        port: '3306'
     }
 }
 
