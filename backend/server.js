@@ -17,7 +17,7 @@ const PORT = 4000;
 
 mongoose
   .connect(
-    "mongodb+srv://Fasrin:0767739896@mydb-pazde.mongodb.net/AF_WD_19?retryWrites=true&w=majority",
+    "mongodb://localhost:27017/school_database",
     { useNewUrlParser: true }
   )
   .then(() => {

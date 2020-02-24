@@ -60,7 +60,7 @@ studentRoutes.route("/add").post(function(req, res) {
           email: req.body.email,
           password: req.body.password,
           nic: req.body.nic,
-          course: req.body.course,
+          // course: req.body.course,
           userType: "student"
         });
 

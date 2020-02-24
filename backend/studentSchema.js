@@ -24,10 +24,10 @@ const  schema = new mongoose.Schema({
   },
   nic: {
     type: String
-  },
-  course: {
-    type: String,
-    ref: "courses"
+  // },
+  // course: {
+  //   type: String,
+  //   ref: "courses"
   }
 });
 

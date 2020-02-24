@@ -8,8 +8,6 @@ import instructorimg from "./img/instructorimage.jpg";
 import adminimage from "./img/adminimage.jpg";
 import coursesbanner from "./img/courses-banner.jpg";
 
-import MainSignIn from "./signIn/MainSignIn";
-import Calendar from "./Calender";
 
 class Home extends Component {
   constructor(props) {
@@ -19,7 +17,7 @@ class Home extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    this.props.history.push("/mainsignin");
+    // this.props.history.push("/mainsignin");
   }
   render() {
     return (
@@ -27,66 +25,38 @@ class Home extends Component {
         <div>
           <section id="showcase">
             <div class="container">
-              <h1>Welcome to Student-Instructor Application</h1>
+              <h1>Welcome to School Managemenr System</h1>
             </div>
           </section>
-
-          <section id="newsletter">
-            <div class="container">
-              <h1>Login to Brightnerd</h1>
-
-              <form onSubmit={this.onSubmit}>
-                <input type="text" placeholder="Enter Email..." />
-                <input type="password" placeholder="Enter Password..." />
-                <button type="submit" class="button_1">
-                  Login
-                </button>
-              </form>
-            </div>
-          </section>
-          <div>
-            <div style={{ float: "right" }}>
-              <Calendar />
-            </div>
-            <div>
-              <img src={coursesbanner} width="900" />
-            </div>
-          </div>
           <section id="boxes">
             <div class="container">
-              {/* <div class="box">
-
+              <div class="box">
+                <img src={studentimg} width="500" />
                 <h3>
-                  {" "}
                   <Link to="/studentsignin"> Student </Link>
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus mi augue, viverra sit amet ultricies
+                  If you are a student please click here
                 </p>
               </div>
               <div class="box">
                 <img src={instructorimg} width="500" />
                 <h3>
-                  {" "}
-                  <Link to="/instructorcoursesignin"> Instructor </Link>
+                  <Link to="/instructorcoursesignin"> Teacher </Link>
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus mi augue, viverra sit amet ultricies
+                  If you are a teacher please click here
                 </p>
               </div>
               <div class="box">
                 <img src={adminimage} width="500" />
                 <h3>
-                  {" "}
                   <Link to="/adminsignin"> Admin </Link>
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Vivamus mi augue, viverra sit amet ultricies
+                  If you are an admin please click here
                 </p>
-              </div> */}
+              </div>
             </div>
           </section>
         </div>

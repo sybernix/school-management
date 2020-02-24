@@ -12,7 +12,7 @@ class StudentSignup extends Component {
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onChangeNic = this.onChangeNic.bind(this);
-    this.onChangeCourse = this.onChangeCourse.bind(this);
+    // this.onChangeCourse = this.onChangeCourse.bind(this);
 
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -22,8 +22,8 @@ class StudentSignup extends Component {
       email: "",
       password: "",
       nic: "",
-      course: "",
-      courseList: [],
+      // course: "",
+      // courseList: [],
       errors: {}
     };
   }
@@ -74,7 +74,7 @@ class StudentSignup extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const { studentName, studentID, email, password, nic, course } = this.state;
+    const { studentName, studentID, email, password, nic } = this.state;
 
     //Check for errors
     if (studentName === "") {
@@ -108,12 +108,12 @@ class StudentSignup extends Component {
       });
       return;
     }
-    if (course === "") {
-      this.setState({
-        errors: { course: "Course is required" }
-      });
-      return;
-    }
+    // if (course === "") {
+    //   this.setState({
+    //     errors: { course: "Course is required" }
+    //   });
+    //   return;
+    // }
 
     console.log(`Form Submitted`);
     console.log(`student Name : ${this.state.studentName}`);
@@ -121,7 +121,7 @@ class StudentSignup extends Component {
     console.log(`Email : ${this.state.email}`);
     console.log(`password : ${this.state.password}`);
     console.log(`NIC Number : ${this.state.nic}`);
-    console.log(`Course Name : ${this.state.course}`);
+    // console.log(`Course Name : ${this.state.course}`);
 
     const newUser = {
       studentName: this.state.studentName,
@@ -129,7 +129,7 @@ class StudentSignup extends Component {
       email: this.state.email,
       password: this.state.password,
       nic: this.state.nic,
-      course: this.state.course
+      // course: this.state.course
     };
 
     axios
@@ -146,7 +146,7 @@ class StudentSignup extends Component {
       email: "",
       password: "",
       nic: "",
-      course: ""
+      // course: ""
     });
   }
 
@@ -208,7 +208,7 @@ class StudentSignup extends Component {
                     onChange={this.onChangeNic}
                     error={errors.nic}
                   />{" "}
-                  <label> Courses </label>
+                  {/* <label> Courses </label>
                   <select
                     className="form-control"
                     id="course"
@@ -223,10 +223,10 @@ class StudentSignup extends Component {
                           key={course.courseName}
                         >
                           {course.courseName}
-                        </option>
-                      );
+                        </option> */}
+                      {/* );
                     })}
-                  </select>
+                  </select> */}
                   <div>
                     <button
                       class="btn waves-effect waves-light"

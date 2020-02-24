@@ -6,7 +6,7 @@ export default class Footer extends Component {
     return (
       <div>
         <footer>
-          <p>Brightnerd, Copyright &copy; 2019</p>
+          <p>MSc IT Batch  15 - Group  B, Copyright &copy; 2020</p>
         </footer>
       </div>
     );

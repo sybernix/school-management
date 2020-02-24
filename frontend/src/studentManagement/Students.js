@@ -9,20 +9,16 @@ import StudentDelete from "./StudentDelete";
 import StudentSignup from "./Signup/StudentSignup";
 import StudentDashboard from "./StudentDashboard";
 
-// import logo from "./resources/logo.png";
-
 class Students extends Component {
   render() {
     return (
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a
-              className="navbar-brand"
+            <a className="navbar-brand"
               href="http://courseweb.sliit.lk/"
               target="_blank"
             >
-              {/* <img src={logo} width="50" height="50" alt="courseweb.sliit.lk" /> */}{" "}
             </a>
 
             <Link to="/studentlist" className="navbar-brand">
