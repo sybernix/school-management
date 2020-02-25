@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TextInputGroup from "../layout/TextInputGroup";
+import TextInputGroup from "./layout/TextInputGroup";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -233,15 +233,14 @@ class StudentSignup extends Component {
                       type="submit"
                       name="action"
                     >
-                      {" "}
-                      Submit{" "}
-                    </button>{" "}
-                  </div>{" "}
-                </form>{" "}
-              </div>{" "}
-            </div>{" "}
-          </div>{" "}
-        </center>{" "}
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </center>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class StudentDashboard extends Component {
+class AdminDashboard extends Component {
   render() {
     return (
       <div className="container">
@@ -14,7 +14,7 @@ class StudentDashboard extends Component {
                   <div style={{ width: "700px" }}>
                     <div className="card-header">
                       <b>
-                        <h3> Student Dashbord </h3>
+                        <h3> Admin Dashbord </h3>
                       </b>{" "}
                     </div>{" "}
                     <div className="çard-body" />{" "}
@@ -29,4 +29,4 @@ class StudentDashboard extends Component {
   }
 }
 
-export default StudentDashboard;
+export default AdminDashboard;

@@ -6,7 +6,7 @@ import StudentAdd from "./StudentAdd";
 import StudentUpdate from "./StudentUpdate";
 import StudentList from "./StudentList";
 import StudentDelete from "./StudentDelete";
-import StudentSignup from "./Signup/StudentSignup";
+import StudentSignup from "./StudentSignUp";
 import StudentDashboard from "./StudentDashboard";
 
 class Students extends Component {
