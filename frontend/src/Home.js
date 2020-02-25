@@ -48,7 +48,7 @@ class Home extends Component {
               <div class="box">
                 <img src={adminimage} width="500" />
                 <h3>
-                  <Link to="/adminSignIn"> Admin </Link>
+                  <Link onClick={() => redirect('/adminSignIn')}> Admin </Link>
                 </h3>
                 <p>
                   If you are an admin please click here

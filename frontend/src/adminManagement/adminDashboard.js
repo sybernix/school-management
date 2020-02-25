@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { redirect } from "../utils/utils";
 
 class AdminDashboard extends Component {
   render() {
@@ -15,12 +16,17 @@ class AdminDashboard extends Component {
                     <div className="card-header">
                       <b>
                         <h3> Admin Dashbord </h3>
-                      </b>{" "}
-                    </div>{" "}
-                    <div className="çard-body" />{" "}
-                  </div>{" "}
-                </div>{" "}
-              </center>{" "}
+                      </b>
+                    </div>
+                    <div className="çard-body" />
+                    <div>
+                    <li>
+                      <Link onClick={() => redirect('/studentSignup')}> Register New  Student </Link>
+                    </li>
+                    </div>
+                  </div>
+                </div>
+              </center>
             </div>
           </div>
         </Router>
