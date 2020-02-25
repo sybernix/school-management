@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import TextInputGroup from "./layout/TextInputGroup";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { onChangeStudentName, onChangeStudentID, onChangeEmail, onChangePassword, onChangeNic } from "./StudentUtils";
 
 class StudentSignup extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeStudentName = this.onChangeStudentName.bind(this);
-    this.onChangeStudentID = this.onChangeStudentID.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
-    this.onChangeNic = this.onChangeNic.bind(this);
+    // this.onChangeStudentName = this.onChangeStudentName.bind(this);
+    // this.onChangeStudentID = this.onChangeStudentID.bind(this);
+    // this.onChangeEmail = this.onChangeEmail.bind(this);
+    // this.onChangePassword = this.onChangePassword.bind(this);
+    // this.onChangeNic = this.onChangeNic.bind(this);
     // this.onChangeCourse = this.onChangeCourse.bind(this);
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -28,31 +29,31 @@ class StudentSignup extends Component {
     };
   }
 
-  onChangeStudentName(e) {
-    this.setState({
-      studentName: e.target.value
-    });
-  }
-  onChangeStudentID(e) {
-    this.setState({
-      studentID: e.target.value
-    });
-  }
-  onChangeEmail(e) {
-    this.setState({
-      email: e.target.value
-    });
-  }
-  onChangePassword(e) {
-    this.setState({
-      password: e.target.value
-    });
-  }
-  onChangeNic(e) {
-    this.setState({
-      nic: e.target.value
-    });
-  }
+  // onChangeStudentName(e) {
+  //   this.setState({
+  //     studentName: e.target.value
+  //   });
+  // }
+  // onChangeStudentID(e) {
+  //   this.setState({
+  //     studentID: e.target.value
+  //   });
+  // }
+  // onChangeEmail(e) {
+  //   this.setState({
+  //     email: e.target.value
+  //   });
+  // }
+  // onChangePassword(e) {
+  //   this.setState({
+  //     password: e.target.value
+  //   });
+  // }
+  // onChangeNic(e) {
+  //   this.setState({
+  //     nic: e.target.value
+  //   });
+  // }
   
   componentDidMount() {
     axios
@@ -172,7 +173,7 @@ class StudentSignup extends Component {
                     placeholder=" Full
                      Name"
                     value={this.state.studentName}
-                    onChange={this.onChangeStudentName}
+                    onChange={onChangeStudentName}
                     error={errors.studentName}
                   />{" "}
                   <TextInputGroup
@@ -180,7 +181,7 @@ class StudentSignup extends Component {
                     name="studentID"
                     placeholder=" Student ID"
                     value={this.state.studentID}
-                    onChange={this.onChangeStudentID}
+                    onChange={onChangeStudentID}
                     error={errors.studentID}
                   />{" "}
                   <TextInputGroup
@@ -189,7 +190,7 @@ class StudentSignup extends Component {
                     placeholder=" Email"
                     type="email"
                     value={this.state.email}
-                    onChange={this.onChangeEmail}
+                    onChange={onChangeEmail}
                     error={errors.email}
                   />{" "}
                   <TextInputGroup
@@ -197,7 +198,7 @@ class StudentSignup extends Component {
                     name="password"
                     placeholder=" Password"
                     value={this.state.password}
-                    onChange={this.onChangePassword}
+                    onChange={onChangePassword}
                     error={errors.password}
                   />{" "}
                   <TextInputGroup
@@ -205,7 +206,7 @@ class StudentSignup extends Component {
                     name="nic"
                     placeholder=" NIC number"
                     value={this.state.nic}
-                    onChange={this.onChangeNic}
+                    onChange={onChangeNic}
                     error={errors.nic}
                   />{" "}
                   {/* <label> Courses </label>
