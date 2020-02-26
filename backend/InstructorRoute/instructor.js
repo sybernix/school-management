@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Instructormodel = require("../Model/Instructor");
-const CourseSchema = require("../Course/CourseSchema/courseSchema");
 
 router.get("/test", (req, res) => res.json({ msg: "instructor Works" }));
 
@@ -36,14 +35,6 @@ router.post("/add", (req, res) => {
     .catch(err => {
       res.status(400).send("adding new instructor failed");
     });
-});
-
-//view all course for single Instructor
-router.post("/:name", (req, res) => {
-  let name = req.params.instructorName;
-  CourseSchema.findOne({ instructorName: name }, (err, Course) => {
-    res.json(Course);
-  });
 });
 
 //Update instructor
@@ -84,13 +75,5 @@ router.delete("/delete/:id", (req, res) => {
     }
   );
 });
-
-// router.put("/admin/rtt", (req,res) =>{
-//     res.send({ type: "put"})
-// })
-
-// router.delete("/admin/de" ,(req,res) => {
-//     res.send({ type: "delete"})
-// })
 
 module.exports = router;

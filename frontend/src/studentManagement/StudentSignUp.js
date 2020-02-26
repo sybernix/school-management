@@ -8,12 +8,11 @@ class StudentSignup extends Component {
     super(props);
 
     this.onChangeStudentName = this.onChangeStudentName.bind(this);
-    this.onChangeStudentID = this.onChangeStudentID.bind(this);
+    this.onChangeAdmissionNo = this.onChangeAdmissionNo.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
-    this.onChangeNic = this.onChangeNic.bind(this);
-    this.onChangeCourse = this.onChangeCourse.bind(this);
     this.onChangeDateOfBirth = this.onChangeDateOfBirth.bind(this);
+    this.onChangeDateOfAdmission = this.onChangeDateOfAdmission.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -21,8 +20,8 @@ class StudentSignup extends Component {
       studentID: "",
       email: "",
       password: "",
-      nic: "",
       dateOfBirth: "",
+      dateOfAdmission: "",
       errors: {}
     };
   }
@@ -37,9 +36,14 @@ class StudentSignup extends Component {
       dateOfBirth: e.target.value
     });
   }
-  onChangeStudentID(e) {
+  onChangeDateOfAdmission(e) {
     this.setState({
-      studentID: e.target.value
+      dateOfAdmission: e.target.value
+    });
+  }
+  onChangeAdmissionNo(e) {
+    this.setState({
+      admissionNo: e.target.value
     });
   }
   onChangeEmail(e) {
@@ -50,11 +54,6 @@ class StudentSignup extends Component {
   onChangePassword(e) {
     this.setState({
       password: e.target.value
-    });
-  }
-  onChangeNic(e) {
-    this.setState({
-      nic: e.target.value
     });
   }
   
@@ -69,16 +68,10 @@ class StudentSignup extends Component {
       });
   }
 
-  onChangeCourse(e) {
-    this.setState({
-      course: e.target.value
-    });
-  }
-
   onSubmit(e) {
     e.preventDefault();
 
-    const { studentName, dateOfBirth, studentID, email, password, nic } = this.state;
+    const { studentName, dateOfBirth, dateOfAdmission, admissionNo, email, password, nic } = this.state;
 
     //Check for errors
     if (studentName === "") {
@@ -89,8 +82,12 @@ class StudentSignup extends Component {
       this.setState({ errors: { dateOfBirth: "Date of birth is required" } });
       return;
     }
-    if (studentID === "") {
-      this.setState({ errors: { studentID: "student ID is required" } });
+    if (dateOfAdmission === "") {
+      this.setState({ errors: { dateOfAdmission: "Date of admission is required" } });
+      return;
+    }
+    if (admissionNo === "") {
+      this.setState({ errors: { admissionNo: "Admission Number is required" } });
       return;
     }
     if (password === "") {
@@ -104,33 +101,13 @@ class StudentSignup extends Component {
       return;
     }
 
-    if (nic === "") {
-      this.setState({
-        errors: { nic: "NIC number is required" }
-      });
-      return;
-    }
-    if (nic.length < 10 || nic.length > 11) {
-      this.setState({
-        errors: { nic: "NIC number is not correct" }
-      });
-      return;
-    }
-
-    console.log(`Form Submitted`);
-    console.log(`student Name : ${this.state.studentName}`);
-    console.log(`student ID : ${this.state.studentID}`);
-    console.log(`Email : ${this.state.email}`);
-    console.log(`password : ${this.state.password}`);
-    console.log(`NIC Number : ${this.state.nic}`);
-
     const newUser = {
       studentName: this.state.studentName,
       dateOfBirth: this.state.dateOfBirth,
-      studentID: this.state.studentID,
+      dateOfAdmission: this.state.dateOfAdmission,
+      admissionNo: this.state.admissionNo,
       email: this.state.email,
       password: this.state.password,
-      nic: this.state.nic,
     };
 
     axios
@@ -144,10 +121,10 @@ class StudentSignup extends Component {
     this.setState({
       studentName: "",
       dateOfBirth: "",
-      studentID: "",
+      dateOfAdmission: "",
+      admissionNo: "",
       email: "",
       password: "",
-      nic: "",
     });
   }
 
@@ -168,16 +145,15 @@ class StudentSignup extends Component {
               <div className="çard-body">
                 <form onSubmit={this.onSubmit}>
                   <TextInputGroup
-                    label=""
+                    label="Full Name"
                     name="studentName"
-                    placeholder=" Full
-                     Name"
+                    placeholder=" Full Name"
                     value={this.state.studentName}
                     onChange={this.onChangeStudentName}
                     error={errors.studentName}
                   />
                   <TextInputGroup
-                    label=""
+                    label="Date of Birth"
                     name="dateOfBirth"
                     placeholder=" Date of Birth"
                     type="date"
@@ -186,15 +162,24 @@ class StudentSignup extends Component {
                     error={errors.dateOfBirth}
                   />
                   <TextInputGroup
-                    label=""
-                    name="studentID"
-                    placeholder=" Student ID"
-                    value={this.state.studentID}
-                    onChange={this.onChangeStudentID}
-                    error={errors.studentID}
+                    label="Date of Admission"
+                    name="dateOfAdmission"
+                    placeholder=" Date of Admission"
+                    type="date"
+                    value={this.state.dateOfAdmission}
+                    onChange={this.onChangeDateOfAdmission}
+                    error={errors.dateOfAdmission}
                   />
                   <TextInputGroup
-                    label=""
+                    label="Admission Number"
+                    name="admissionNo"
+                    placeholder=" Admission Number"
+                    value={this.state.admissionNo}
+                    onChange={this.onChangeAdmissionNo}
+                    error={errors.admissionNo}
+                  />
+                  <TextInputGroup
+                    label="Email"
                     name="email"
                     placeholder=" Email"
                     type="email"
@@ -203,20 +188,12 @@ class StudentSignup extends Component {
                     error={errors.email}
                   />
                   <TextInputGroup
-                    label=""
+                    label="Password"
                     name="password"
                     placeholder=" Password"
                     value={this.state.password}
                     onChange={this.onChangePassword}
                     error={errors.password}
-                  />
-                  <TextInputGroup
-                    label=""
-                    name="nic"
-                    placeholder=" NIC number"
-                    value={this.state.nic}
-                    onChange={this.onChangeNic}
-                    error={errors.nic}
                   />
                   <div>
                     <button

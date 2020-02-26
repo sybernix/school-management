@@ -81,56 +81,6 @@ studentRoutes.route("/add").post(function(req, res) {
           });
       }
     });
-
-  //--------------------------------------- STUDENT MAIL ------------------------
-  const output = `
-    <p> You have been selected as a student </p>
-    <h3>Details</h3>
-    <h4>Username and passowrd given below </h4>
-    <ul>  
-      <li>Name: ${req.body.studentName}</li>
-      <li>UserName: ${req.body.studentID}</li>
-      <li>Password: ${req.body.password}</li>
-    </ul>
-    <h3>Thank You</h3>
-    
-  `;
-
-  const mail = req.body.email;
-
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    service: "gmail",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: "testjahrin@gmail.com", // generated ethereal user
-      pass: "jahrin@123" // generated ethereal password
-    },
-    tls: {
-      rejectUnauthorized: false
-    }
-  });
-
-  // setup email data with unicode symbols
-  let mailOptions = {
-    from: '"BrightNerd" <jahrinsrth@gmail.com>', // sender address
-    to: mail, //'fasrinaleem@gmail.com', // list of receivers
-    subject: "New Student Request", // Subject line
-    text: "Hello world?", // plain text body
-    html: output // html body
-  };
-
-  // send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log("Message sent: %s", info.messageId);
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
-    // res.render('contact', {msg:'Email has been sent'});
-  });
 });
 
 //-----------------------------LOGIN--------------------
