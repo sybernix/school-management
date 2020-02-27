@@ -36,7 +36,7 @@ app.use("/api/student", studentRoutes);
 app.use("/api/instructor", instructor);
 
 //Middlewre instructor login
-app.use("/api", instLogrouter);
+// app.use("/api", instLogrouter);
 
 app.listen(PORT, function() {
   console.log("Server is running on port : " + PORT);

@@ -49,7 +49,7 @@ class StudentSignIn extends Component {
       alert("Enter Student Credentials");
     } else {
       axios
-        .post("http://localhost:4000/api/instructor/login", new_Instructor)
+        .post("http://localhost:4000/api/student/login", new_Instructor)
         .then(res => {
           if (res.status === 200) {
             alert("Login Success! Welcome, " + this.state.studentID);

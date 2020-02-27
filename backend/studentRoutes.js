@@ -2,12 +2,7 @@ const express = require("express");
 const router = express.Router();
 const studentRoutes = express.Router();
 const StudentModel = require("./studentSchema");
-
-const nodemailer = require("nodemailer");
 const mongoose = require("mongoose");
-
-const checkAuth = require("./auth/checkAuthStudent");
-
 const jwt = require("jsonwebtoken");
 const keys = require("./config/key.json");
 const JWT_KEY = keys.JWT_KEY;
@@ -60,7 +55,6 @@ studentRoutes.route("/add").post(function(req, res) {
           email: req.body.email,
           password: req.body.password,
           nic: req.body.nic,
-          // course: req.body.course,
           userType: "student"
         });
 
@@ -86,7 +80,7 @@ studentRoutes.route("/add").post(function(req, res) {
 //-----------------------------LOGIN--------------------
 
 //login
-router.post("/students/login", (req, res) => {
+router.post("/login", (req, res) => {
   console.log(req.body.studentID);
   Studentmodel.find({ studentID: req.body.studentID })
     .exec()
