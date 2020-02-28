@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TextInputGroup from "./layout/TextInputGroup";
+import TextInputGroup from "../utils/layout/TextInputGroup";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 

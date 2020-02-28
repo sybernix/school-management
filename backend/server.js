@@ -24,8 +24,6 @@ mongoose
 //Middlewares
 app.use(cors());
 app.use(bodyParser.json());
-
-
 //MiddlewaresAdmin
 app.use("/api", router);
 

@@ -9,6 +9,7 @@ const JWT_KEY = keys.JWT_KEY;
 
 //Get all student details
 studentRoutes.route("/").get(function(req, res) {
+  console.log('1111')
   StudentModel.find(function(err, student) {
     if (err) {
       console.log(err);
@@ -27,16 +28,6 @@ studentRoutes.route("/:id").get(function(req, res) {
 
 //Add new student to db
 studentRoutes.route("/add").post(function(req, res) {
-  // let student = new studentModel(req.body);
-  // student
-  //   .save()
-  //   .then(student => {
-  //     res.status(200).json({ student : "student added successfully" });
-
-  //   })
-  //   .catch(err => {
-  //     res.status(400).send("Adding new student failed");
-  //   });
 
   StudentModel.find({
     studentID: req.body.studentID
@@ -80,7 +71,8 @@ studentRoutes.route("/add").post(function(req, res) {
 //-----------------------------LOGIN--------------------
 
 //login
-router.post("/login", (req, res) => {
+studentRoutes.post("/login", (req, res) => {
+  console.log('222')
   console.log(req.body.studentID);
   Studentmodel.find({ studentID: req.body.studentID })
     .exec()
