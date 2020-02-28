@@ -1,5 +1,5 @@
-var redirect = function(link) {
+const redirect = function (link) {
     document.location.href = link;
-}
-   
+};
+
 exports.redirect = redirect;

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import TextInputGroup from "../utils/layout/TextInputGroup";
-import TextSelectGroup from "../utils/layout/TextSelectGroup";
+import TextInputGroup from "../utils/inputDefinitions/TextInputGroup";
+import TextSelectGroup from "../utils/inputDefinitions/TextSelectGroup";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -17,15 +17,15 @@ class StudentSignup extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.houseOptions = [
-            { label: "Green", value: 1 },
-            { label: "Yellow", value: 2 },
-            { label: "Brown", value: 3 },
+            {label: "Green", value: 1},
+            {label: "Yellow", value: 2},
+            {label: "Brown", value: 3},
         ];
 
         this.transportOptions = [
-            { label: "Bus", value: 1 },
-            { label: "Van", value: 2 },
-            { label: "Private Vehicle", value: 3 },
+            {label: "Bus", value: 1},
+            {label: "Van", value: 2},
+            {label: "Private Vehicle", value: 3},
         ];
 
         this.state = {

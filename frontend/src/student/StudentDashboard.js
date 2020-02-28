@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import { redirect } from "../utils/utils";
+import { BrowserRouter as Router } from "react-router-dom";
 
-class AdminDashboard extends Component {
+class StudentDashboard extends Component {
   render() {
     return (
       <div className="container">
@@ -15,15 +14,10 @@ class AdminDashboard extends Component {
                   <div style={{ width: "700px" }}>
                     <div className="card-header">
                       <b>
-                        <h3> Admin Dashbord </h3>
+                        <h3> Student Dashbord </h3>
                       </b>
                     </div>
                     <div className="çard-body" />
-                    <div>
-                    <li>
-                      <Link onClick={() => redirect('/studentSignup')}> Register New  Student </Link>
-                    </li>
-                    </div>
                   </div>
                 </div>
               </center>
@@ -35,4 +29,4 @@ class AdminDashboard extends Component {
   }
 }
 
-export default AdminDashboard;
+export default StudentDashboard;

@@ -1,18 +1,18 @@
 import React from "react";
-import Select, { components } from 'react-select';
+import Select from 'react-select';
 import PropTypes from "prop-types";
 import ClassNames from "classnames";
 
 const TextSelectGroup = ({
-                            label,
-                            name,
-                            options,
-                            value,
-                            placeholder,
-                            type,
-                            onChange,
-                            error
-                        }) => {
+                             label,
+                             name,
+                             options,
+                             value,
+                             placeholder,
+                             type,
+                             onChange,
+                             error
+                         }) => {
     return (
         <div className="form-group" style={{marginBottom: 30}}>
             <label htmlFor={name}> {label} </label>
