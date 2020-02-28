@@ -42,11 +42,11 @@ class AdminSignIn extends Component {
     };
 
     if (!new_Instructor.adminID) {
-      alert("Enter Admin ID");
+      alert("Enter admin ID");
     } else if (!new_Instructor.password) {
       alert("Enter Password");
     } else if (!new_Instructor.adminID && !new_Instructor.password) {
-      alert("Enter Admin Credentials");
+      alert("Enter admin Credentials");
     } else {
       axios
         .post("http://localhost:4000/api/admin/login", new_Instructor)

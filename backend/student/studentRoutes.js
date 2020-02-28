@@ -4,7 +4,7 @@ const studentRoutes = express.Router();
 const StudentModel = require("./studentSchema");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-const keys = require("./config/key.json");
+const keys = require("../config/key.json");
 const JWT_KEY = keys.JWT_KEY;
 
 //Get all student details
