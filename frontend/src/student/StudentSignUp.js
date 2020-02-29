@@ -248,6 +248,17 @@ class StudentSignup extends Component {
                                         onChange={this.onChangeAllergies}
                                         error={errors.allergies}
                                     />
+                                    <div className="card-header">
+                                        <b> Particulars of Parents/Guardian</b>
+                                    </div>
+                                    <TextInputGroup
+                                        label="Home Address"
+                                        name="address"
+                                        placeholder=" Home Address"
+                                        value={this.state.address}
+                                        onChange={this.onChangeAddress}
+                                        error={errors.address}
+                                    />
                                     <div>
                                         <button
                                             class="btn waves-effect waves-light"
