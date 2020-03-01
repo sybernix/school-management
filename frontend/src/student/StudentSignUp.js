@@ -14,6 +14,22 @@ class StudentSignup extends Component {
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onChangeDateOfBirth = this.onChangeDateOfBirth.bind(this);
         this.onChangeDateOfAdmission = this.onChangeDateOfAdmission.bind(this);
+        this.onChangeCurrentClass = this.onChangeCurrentClass.bind(this);
+        this.onChangeTransport = this.onChangeTransport.bind(this);
+        this.onChangeAllergies = this.onChangeAllergies.bind(this);
+        this.onChangeAddress = this.onChangeAddress.bind(this);
+        this.onChangeFatherName = this.onChangeFatherName.bind(this);
+        this.onChangeFatherOccupation = this.onChangeFatherOccupation.bind(this);
+        this.onChangeFatherTelephone = this.onChangeFatherTelephone.bind(this);
+        this.onChangeFatherEmail = this.onChangeFatherEmail.bind(this);
+        this.onChangeMotherName = this.onChangeMotherName.bind(this);
+        this.onChangeMotherOccupation = this.onChangeMotherOccupation.bind(this);
+        this.onChangeMotherTelephone = this.onChangeMotherTelephone.bind(this);
+        this.onChangeMotherEmail = this.onChangeMotherEmail.bind(this);
+        this.onChangeGuardianName = this.onChangeGuardianName.bind(this);
+        this.onChangeGuardianOccupation = this.onChangeGuardianOccupation.bind(this);
+        this.onChangeGuardianTelephone = this.onChangeGuardianTelephone.bind(this);
+        this.onChangeGuardianEmail = this.onChangeGuardianEmail.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.houseOptions = [
@@ -34,7 +50,23 @@ class StudentSignup extends Component {
             email: "",
             password: "",
             dateOfBirth: "",
+            admissionNo: "",
             dateOfAdmission: "",
+            currentClass: "",
+            house: "",
+            transport: "",
+            address: "",
+            fatherName: "",
+            fatherOccupation: "",
+            fatherTelephone: "",
+            fatherEmail: "",
+            motherName: "",
+            motherTelephone: "",
+            motherEmail: "",
+            guardianName: "",
+            guardianOccupation: "",
+            guardianTelephone: "",
+            guardianEmail: "",
             errors: {}
         };
     }
@@ -72,6 +104,102 @@ class StudentSignup extends Component {
     onChangePassword(e) {
         this.setState({
             password: e.target.value
+        });
+    }
+
+    onChangeCurrentClass(e) {
+        this.setState({
+            currentClass: e.target.value
+        });
+    }
+
+    onChangeTransport(e) {
+        this.setState({
+            transport: e.target.value
+        });
+    }
+
+    onChangeAllergies(e) {
+        this.setState({
+            allergies: e.target.value
+        });
+    }
+
+    onChangeAddress(e) {
+        this.setState({
+            address: e.target.value
+        });
+    }
+
+    onChangeFatherName(e) {
+        this.setState({
+            fatherName: e.target.value
+        });
+    }
+
+    onChangeFatherOccupation(e) {
+        this.setState({
+            fatherOccupation: e.target.value
+        });
+    }
+
+    onChangeFatherTelephone(e) {
+        this.setState({
+            fatherTelephone: e.target.value
+        });
+    }
+
+    onChangeFatherEmail(e) {
+        this.setState({
+            fatherEmail: e.target.value
+        });
+    }
+
+    onChangeMotherName(e) {
+        this.setState({
+            motherName: e.target.value
+        });
+    }
+
+    onChangeMotherOccupation(e) {
+        this.setState({
+            motherOccupation: e.target.value
+        });
+    }
+
+    onChangeMotherTelephone(e) {
+        this.setState({
+            motherTelephone: e.target.value
+        });
+    }
+
+    onChangeMotherEmail(e) {
+        this.setState({
+            motherEmail: e.target.value
+        });
+    }
+
+    onChangeGuardianName(e) {
+        this.setState({
+            guardianName: e.target.value
+        });
+    }
+
+    onChangeGuardianOccupation(e) {
+        this.setState({
+            guardianOccupation: e.target.value
+        });
+    }
+
+    onChangeGuardianTelephone(e) {
+        this.setState({
+            guardianTelephone: e.target.value
+        });
+    }
+
+    onChangeGuardianEmail(e) {
+        this.setState({
+            guardianEmail: e.target.value
         });
     }
 
@@ -157,7 +285,7 @@ class StudentSignup extends Component {
                             <div className="card-header">
                                 <b> Student Registration</b>
                             </div>
-                            <div className="card-header">
+                            <div className="card-header-pills">
                                 <b> Please enter full information and click submit</b>
                             </div>
                             <div className="çard-body">
@@ -248,7 +376,7 @@ class StudentSignup extends Component {
                                         onChange={this.onChangeAllergies}
                                         error={errors.allergies}
                                     />
-                                    <div className="card-header">
+                                    <div className="card-title">
                                         <b> Particulars of Parents/Guardian</b>
                                     </div>
                                     <TextInputGroup
@@ -258,6 +386,111 @@ class StudentSignup extends Component {
                                         value={this.state.address}
                                         onChange={this.onChangeAddress}
                                         error={errors.address}
+                                    />
+                                    <div className="card-subtitle">
+                                        <b> Father Details</b>
+                                    </div>
+                                    <TextInputGroup
+                                        label="Father's Name"
+                                        name="fatherName"
+                                        placeholder=" Father's Name"
+                                        value={this.state.fatherName}
+                                        onChange={this.onChangeFatherName}
+                                        error={errors.fatherName}
+                                    />
+                                    <TextInputGroup
+                                        label="Father's Occupation"
+                                        name="fatherOccupation"
+                                        placeholder=" Father's Occupation"
+                                        value={this.state.fatherOccupation}
+                                        onChange={this.onChangeFatherOccupation}
+                                        error={errors.fatherOccupation}
+                                    />
+                                    <TextInputGroup
+                                        label="Father's Telephone"
+                                        name="fatherTelephone"
+                                        placeholder=" Father's Telephone"
+                                        value={this.state.fatherTelephone}
+                                        onChange={this.onChangeFatherTelephone}
+                                        error={errors.fatherTelephone}
+                                    />
+                                    <TextInputGroup
+                                        label="Father's Email"
+                                        name="fatherEmail"
+                                        placeholder=" Father's Email"
+                                        value={this.state.fatherEmail}
+                                        onChange={this.onChangeFatherEmail}
+                                        error={errors.fatherEmail}
+                                    />
+                                    <div className="card-subtitle">
+                                        <b> Mother Details</b>
+                                    </div>
+                                    <TextInputGroup
+                                        label="Mother's Name"
+                                        name="motherName"
+                                        placeholder=" Mother's Name"
+                                        value={this.state.motherName}
+                                        onChange={this.onChangeMotherName}
+                                        error={errors.motherName}
+                                    />
+                                    <TextInputGroup
+                                        label="Mother's Occupation"
+                                        name="motherOccupation"
+                                        placeholder=" Mother's Occupation"
+                                        value={this.state.motherOccupation}
+                                        onChange={this.onChangeMotherOccupation}
+                                        error={errors.motherOccupation}
+                                    />
+                                    <TextInputGroup
+                                        label="Mother's Telephone"
+                                        name="motherTelephone"
+                                        placeholder=" Mother's Telephone"
+                                        value={this.state.motherTelephone}
+                                        onChange={this.onChangeMotherTelephone}
+                                        error={errors.motherTelephone}
+                                    />
+                                    <TextInputGroup
+                                        label="Mother's Email"
+                                        name="motherEmail"
+                                        placeholder=" Mother's Email"
+                                        value={this.state.motherEmail}
+                                        onChange={this.onChangeMotherEmail}
+                                        error={errors.motherEmail}
+                                    />
+                                    <div className="card-subtitle">
+                                        <b> Guardian Details</b>
+                                    </div>
+                                    <TextInputGroup
+                                        label="Guardian's Name"
+                                        name="guardianName"
+                                        placeholder=" Guardian's Name"
+                                        value={this.state.guardianName}
+                                        onChange={this.onChangeGuardianName}
+                                        error={errors.guardianName}
+                                    />
+                                    <TextInputGroup
+                                        label="Guardian's Occupation"
+                                        name="guardianOccupation"
+                                        placeholder=" Guardian's Occupation"
+                                        value={this.state.guardianOccupation}
+                                        onChange={this.onChangeGuardianOccupation}
+                                        error={errors.guardianOccupation}
+                                    />
+                                    <TextInputGroup
+                                        label="Guardian's Telephone"
+                                        name="guardianTelephone"
+                                        placeholder=" Guardian's Telephone"
+                                        value={this.state.guardianTelephone}
+                                        onChange={this.onChangeGuardianTelephone}
+                                        error={errors.guardianTelephone}
+                                    />
+                                    <TextInputGroup
+                                        label="Guardian's Email"
+                                        name="guardianEmail"
+                                        placeholder=" Guardian's Email"
+                                        value={this.state.guardianEmail}
+                                        onChange={this.onChangeGuardianEmail}
+                                        error={errors.guardianEmail}
                                     />
                                     <div>
                                         <button

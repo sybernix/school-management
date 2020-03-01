@@ -3,9 +3,11 @@ import {BrowserRouter as Router, Link} from "react-router-dom";
 import "./css/Home.css";
 import {redirect} from "./utils/utils";
 
-import studentimg from "./img/studentimage.jpg";
-import instructorimg from "./img/instructorimage.jpg";
-import adminimage from "./img/adminimage.jpg";
+import studentImg from "./img/studentimage.jpg";
+import teacherImg from "./img/teacherImg.jpg";
+import parentImg from "./img/parentImg.jpg"
+import adminImg from "./img/adminImg.jpg";
+
 
 class Home extends Component {
     constructor(props) {
@@ -29,7 +31,7 @@ class Home extends Component {
                     <section id="boxes">
                         <div class="container">
                             <div class="box">
-                                <img src={studentimg} width="500"/>
+                                <img src={studentImg} width="500"/>
                                 <h3>
                                     <Link onClick={() => redirect('/studentSignIn')}> Student </Link>
                                 </h3>
@@ -38,7 +40,7 @@ class Home extends Component {
                                 </p>
                             </div>
                             <div class="box">
-                                <img src={instructorimg} width="500"/>
+                                <img src={teacherImg} width="500"/>
                                 <h3>
                                     <Link to="/teacherSignIn"> Teacher </Link>
                                 </h3>
@@ -46,8 +48,17 @@ class Home extends Component {
                                     If you are a teacher please click here
                                 </p>
                             </div>
+                            <div className="box">
+                                <img src={parentImg} width="500"/>
+                                <h3>
+                                    <Link to="/parentSignIn"> Parent </Link>
+                                </h3>
+                                <p>
+                                    If you are a parent please click here
+                                </p>
+                            </div>
                             <div class="box">
-                                <img src={adminimage} width="500"/>
+                                <img src={adminImg} width="500"/>
                                 <h3>
                                     <Link onClick={() => redirect('/adminSignIn')}> Admin </Link>
                                 </h3>
