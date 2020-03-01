@@ -15,6 +15,7 @@ class StudentSignup extends Component {
         this.onChangeDateOfBirth = this.onChangeDateOfBirth.bind(this);
         this.onChangeDateOfAdmission = this.onChangeDateOfAdmission.bind(this);
         this.onChangeCurrentClass = this.onChangeCurrentClass.bind(this);
+        this.onChangeHouse = this.onChangeHouse.bind(this);
         this.onChangeTransport = this.onChangeTransport.bind(this);
         this.onChangeAllergies = this.onChangeAllergies.bind(this);
         this.onChangeAddress = this.onChangeAddress.bind(this);
@@ -53,7 +54,7 @@ class StudentSignup extends Component {
             admissionNo: "",
             dateOfAdmission: "",
             currentClass: "",
-            house: "",
+            house: "Green",
             transport: "",
             address: "",
             fatherName: "",
@@ -110,6 +111,13 @@ class StudentSignup extends Component {
     onChangeCurrentClass(e) {
         this.setState({
             currentClass: e.target.value
+        });
+    }
+
+    onChangeHouse(e) {
+        console.log(e);
+        this.setState({
+            house: e.value
         });
     }
 
