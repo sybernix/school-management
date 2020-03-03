@@ -34,15 +34,15 @@ class StudentSignup extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.houseOptions = [
-            {label: "Green", value: 1},
-            {label: "Yellow", value: 2},
-            {label: "Brown", value: 3},
+            {label: "Green", value: "green"},
+            {label: "Yellow", value: "yellow"},
+            {label: "Brown", value: "brown"},
         ];
 
         this.transportOptions = [
-            {label: "Bus", value: 1},
-            {label: "Van", value: 2},
-            {label: "Private Vehicle", value: 3},
+            {label: "Bus", value: "bus"},
+            {label: "Van", value: "van"},
+            {label: "Private Vehicle", value: "privateVehicle"},
         ];
 
         this.state = {
@@ -56,6 +56,7 @@ class StudentSignup extends Component {
             currentClass: "",
             house: "Green",
             transport: "",
+            allergies: "",
             address: "",
             fatherName: "",
             fatherOccupation: "",
@@ -63,6 +64,7 @@ class StudentSignup extends Component {
             fatherEmail: "",
             motherName: "",
             motherTelephone: "",
+            motherOccupation: "",
             motherEmail: "",
             guardianName: "",
             guardianOccupation: "",
@@ -123,8 +125,9 @@ class StudentSignup extends Component {
 
     onChangeTransport(e) {
         this.setState({
-            transport: e.target.value
+            transport: e.value
         });
+        console.log(this.state.transport)
     }
 
     onChangeAllergies(e) {
@@ -225,19 +228,17 @@ class StudentSignup extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const {studentName, dateOfBirth, dateOfAdmission, admissionNo, email, password, nic} = this.state;
+        const {studentName, studentID, email, password, dateOfBirth,
+            admissionNo, dateOfAdmission, currentClass, house,
+            transport, allergies, address, fatherName,
+            fatherOccupation, fatherTelephone, fatherEmail,
+            motherName, motherTelephone, motherOccupation,
+            motherEmail, guardianName, guardianOccupation,
+            guardianTelephone, guardianEmail} = this.state;
 
         //Check for errors
         if (studentName === "") {
             this.setState({errors: {studentName: "student Name is required"}});
-            return;
-        }
-        if (dateOfBirth === "") {
-            this.setState({errors: {dateOfBirth: "Date of birth is required"}});
-            return;
-        }
-        if (dateOfAdmission === "") {
-            this.setState({errors: {dateOfAdmission: "Date of admission is required"}});
             return;
         }
         if (admissionNo === "") {
@@ -257,11 +258,29 @@ class StudentSignup extends Component {
 
         const newUser = {
             studentName: this.state.studentName,
-            dateOfBirth: this.state.dateOfBirth,
-            dateOfAdmission: this.state.dateOfAdmission,
-            admissionNo: this.state.admissionNo,
+            studentID: this.state.studentID,
             email: this.state.email,
             password: this.state.password,
+            dateOfBirth: this.state.dateOfBirth,
+            admissionNo: this.state.admissionNo,
+            dateOfAdmission: this.state.dateOfAdmission,
+            currentClass: this.state.currentClass,
+            house: this.state.house,
+            transport: this.state.transport,
+            allergies: this.state.allergies,
+            address: this.state.address,
+            fatherName: this.state.fatherName,
+            fatherOccupation: this.state.fatherOccupation,
+            fatherTelephone: this.state.fatherTelephone,
+            fatherEmail: this.state.fatherEmail,
+            motherName: this.state.motherName,
+            motherTelephone: this.state.motherTelephone,
+            motherOccupation: this.state.motherOccupation,
+            motherEmail: this.state.motherEmail,
+            guardianName: this.state.guardianName,
+            guardianOccupation: this.state.guardianOccupation,
+            guardianTelephone: this.state.guardianTelephone,
+            guardianEmail: this.state.guardianEmail,
         };
 
         axios
@@ -274,11 +293,29 @@ class StudentSignup extends Component {
         //Clear state after error checking(When click submit button)
         this.setState({
             studentName: "",
-            dateOfBirth: "",
-            dateOfAdmission: "",
-            admissionNo: "",
+            studentID: "",
             email: "",
             password: "",
+            dateOfBirth: "",
+            admissionNo: "",
+            dateOfAdmission: "",
+            currentClass: "",
+            house: "Green",
+            transport: "",
+            allergies: "",
+            address: "",
+            fatherName: "",
+            fatherOccupation: "",
+            fatherTelephone: "",
+            fatherEmail: "",
+            motherName: "",
+            motherTelephone: "",
+            motherOccupation: "",
+            motherEmail: "",
+            guardianName: "",
+            guardianOccupation: "",
+            guardianTelephone: "",
+            guardianEmail: "",
         });
     }
 
@@ -373,6 +410,7 @@ class StudentSignup extends Component {
                                         options={this.transportOptions}
                                         placeholder=" Mode of Transport"
                                         value={this.state.transport}
+                                        // onChange={value => "this.setState({ transport: value })"}
                                         onChange={this.onChangeTransport}
                                         error={errors.transport}
                                     />
