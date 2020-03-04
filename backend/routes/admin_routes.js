@@ -1,10 +1,10 @@
 const express = require("express");
-const router = express.Router();
-const adminModel = require("./adminSchema");
+const adminModel = require("../schemas/admin_schema");
 const mongoose = require("mongoose");
-const checkAuth = require("../auth/checkAuthAdmin");
 const jwt = require("jsonwebtoken");
 const keys = require("../config/key.json");
+
+const router = express.Router();
 const JWT_KEY = keys.JWT_KEY;
 
 //Retrieve all admins
@@ -66,8 +66,6 @@ router.post("/admin/add", (req, res) => {
         });
 });
 
-//-----------------------------LOGIN--------------------
-
 //login
 router.post("/admin/login", (req, res) => {
     console.log(req.body.adminID)
@@ -111,7 +109,7 @@ router.post("/admin/login", (req, res) => {
         });
 });
 
-//------------------------------------ADMIN UPDATE-------------------------------
+//update
 router.post("/admin/update/:id", (req, res) => {
     adminModel.findById(req.params.id, (err, admin) => {
         if (!admin) {
@@ -142,13 +140,5 @@ router.delete("/admin/delete/:id", (req, res) => {
         }
     });
 });
-
-// router.put("/admin/rtt", (req,res) =>{
-//     res.send({ type: "put"})
-// })
-
-// router.delete("/admin/de" ,(req,res) => {
-//     res.send({ type: "delete"})
-// })
 
 module.exports = router;

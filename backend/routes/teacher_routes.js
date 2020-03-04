@@ -1,8 +1,49 @@
 const express = require("express");
 const router = express.Router();
-const teacherModel = require("./teacherSchema");
+const teacherModel = require("../schemas/teacher_schema");
 
 router.get("/test", (req, res) => res.json({msg: "instructor Works"}));
+
+//login
+router.post("/login", (req, res) => {
+    console.log(req.body.instructorID);
+    teacherModel.find({instructorID: req.body.instructorID})
+        .exec()
+        .then(inst => {
+            console.log(inst);
+            if (inst.length < 1) {
+                return res.status(401).json({
+                    message: 'Authorization Failed!'
+                });
+            }
+            if (inst) {
+                //correct password
+                const token = jwt.sign({
+                        id: inst[0]._id,
+                        instructorID: inst[0].instructorID,
+                        userType: inst[0].userType
+                    },
+                    JWT_KEY,
+                    {
+                        expiresIn: "1h"
+                    }
+                );
+                // console.log(instructorID);
+                return res.status(200).json({
+                    message: 'Authorization Success',
+                    token: token
+                });
+            }
+            res.status(401).json({
+                message: 'Authorization Failed!'
+            });
+        }).catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error: err
+        });
+    })
+});
 
 //
 router.get("/all", (req, res) => {

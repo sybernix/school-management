@@ -1,16 +1,16 @@
 const express = require("express");
-const router = express.Router();
-const studentRoutes = express.Router();
-const StudentModel = require("./studentSchema");
+const studentModel = require("../schemas/student_schema");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const keys = require("../config/key.json");
+
+const router = express.Router();
 const JWT_KEY = keys.JWT_KEY;
 
 //Get all student details
-studentRoutes.route("/").get(function(req, res) {
+router.get("/", function(req, res) {
   console.log('1111')
-  StudentModel.find(function(err, student) {
+  studentModel.find(function(err, student) {
     if (err) {
       console.log(err);
     } else {
@@ -19,17 +19,16 @@ studentRoutes.route("/").get(function(req, res) {
   });
 });
 
-studentRoutes.route("/:id").get(function(req, res) {
+router.get("/:id", function(req, res) {
   let id = req.params.id;
-  StudentModel.findById(id, function(err, students) {
+  studentModel.findById(id, function(err, students) {
     res.json(students);
   });
 });
 
 //Add new student to db
-studentRoutes.route("/add").post(function(req, res) {
-
-  StudentModel.find({
+router.post("/add", function(req, res) {
+  studentModel.find({
     studentID: req.body.studentID
   })
     .exec()
@@ -39,7 +38,7 @@ studentRoutes.route("/add").post(function(req, res) {
           message: "Student already exists"
         });
       } else {
-        const studentModel = new StudentModel({
+        const studentModel = new studentModel({
           _id: mongoose.Types.ObjectId(),
           studentName: req.body.studentName,
           studentID: req.body.studentID,
@@ -71,7 +70,7 @@ studentRoutes.route("/add").post(function(req, res) {
 //-----------------------------LOGIN--------------------
 
 //login
-studentRoutes.post("/login", (req, res) => {
+router.post("/login", (req, res) => {
   console.log('222')
   console.log(req.body.studentID);
   Studentmodel.find({ studentID: req.body.studentID })
@@ -115,12 +114,12 @@ studentRoutes.post("/login", (req, res) => {
 });
 
 //Update the student details
-studentRoutes.route("/update/:id").post(function(req, res) {
-  StudentModel.findById(req.params.id, function(err, studentmodel) {
+router.post("/update/:id", function(req, res) {
+  studentModel.findById(req.params.id, function(err, studentmodel) {
     if (!studentmodel) res.status(404).send("Data is not found");
     else studentmodel.studentName = req.body.studentName;
-    studentmodel.studentID = req.body.studentID;
 
+    studentmodel.studentID = req.body.studentID;
     studentmodel.email = req.body.email;
     studentmodel.password = req.body.password;
     studentmodel.nic = req.body.nic;
@@ -137,14 +136,13 @@ studentRoutes.route("/update/:id").post(function(req, res) {
 });
 
 // Delete the student
-studentRoutes.route("/delete/:id").delete(function(req, res) {
-  StudentModel.findOneAndDelete({ _id: req.params.id }, function(
-    err,
-    studentmodel
+router.delete("/delete/:id", function(req, res) {
+  studentModel.findOneAndDelete({ _id: req.params.id }, function(
+    err
   ) {
     if (err) res.json(err);
     else res.json("Successfully removed");
   });
 });
 
-module.exports = studentRoutes;
+module.exports = router;

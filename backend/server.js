@@ -3,9 +3,9 @@ const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const router = require("./admin/adminRoutes");
-const studentRoutes = require("./student/studentRoutes");
-const teacher = require("./teacher/teacherRoutes");
+const adminRoutes = require("./routes/admin_routes");
+const studentRoutes = require("./routes/student_routes");
+const teacherRoutes = require("./routes/teacher_routes");
 const PORT = 4000;
 
 mongoose
@@ -20,13 +20,13 @@ mongoose
         console.log(err.message);
     });
 
-//Middlewares
+//Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use("/api", router);
-app.use("/api/student", studentRoutes);
-app.use("/api/teacher", teacher);
+app.use("/admin", adminRoutes);
+app.use("/student", studentRoutes);
+app.use("/teacher", teacherRoutes);
 
 app.listen(PORT, function () {
-    console.log("Server is running on port : " + PORT);
+    console.log("Student management system backend server is running on port : " + PORT);
 });

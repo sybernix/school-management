@@ -4,13 +4,17 @@ const schema = new mongoose.Schema({
     name: {
         type: String
     },
+    ID: {
+        type: String,
+        required: true
+    },
     mail: {
         type: String
     },
     contactNumber: {
         type: Number
     },
-    dept: {
+    department: {
         type: String
     },
     title: {
